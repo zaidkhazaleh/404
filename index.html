@@ -1,253 +1,208 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>الموقع قيد التطوير</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-        :root {
-            --primary: #007AFF;
-            --secondary: #34C759;
-            --dark: #1C1C1E;
-            --light: #F2F2F7;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(-45deg, #1C1C1E, #2C2C2E, #1C1C1E);
-            background-size: 400% 400%;
-            animation: gradientBG 12s ease infinite;
-            color: var(--light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        @keyframes gradientBG {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
-        }
-
-        .container {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .logo {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 1.5rem;
-            animation: bounceIn 1s ease-out, pulse 2s infinite;
-        }
-
-        @keyframes bounceIn {
-            0% {transform: scale(0.5); opacity: 0;}
-            60% {transform: scale(1.1); opacity: 1;}
-            100% {transform: scale(1);}
-        }
-
-        @keyframes pulse {
-            0%, 100% {transform: scale(1);}
-            50% {transform: scale(1.1);}
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            margin-top: -1rem;
-            margin-bottom: 2.5rem;
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
-        .xcode-window {
-            background: rgba(30, 30, 32, 0.85);
-            border-radius: 12px;
-            padding: 1.2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            text-align: left;
-            direction: ltr;
-            overflow-x: auto;
-            margin-bottom: 2rem;
-        }
-
-        .window-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-        }
-
-        .window-buttons {
-            display: flex;
-            gap: 6px;
-            margin-right: 8px;
-        }
-
-        .window-btn {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .btn-red {background: #FF5F56;}
-        .btn-yellow {background: #FFBD2E;}
-        .btn-green {background: #27C93F;}
-
-        .window-title {
-            font-size: 0.85rem;
-            color: #aaa;
-        }
-
-        .code {
-            font-family: 'Menlo', 'Monaco', monospace;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #ccc;
-        }
-
-        .code-purple {color: #C678DD;}
-        .code-blue {color: #61AFEF;}
-        .code-green {color: #98C379;}
-        .code-yellow {color: #E5C07B;}
-        .code-gray {color: #5C6370;}
-
-        .progress-container {
-            width: 100%;
-            height: 8px;
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 2rem 0;
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 65%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            animation: progress-animation 4s ease-in-out infinite;
-        }
-
-        @keyframes progress-animation {
-            0% {width: 65%;}
-            50% {width: 80%;}
-            100% {width: 65%;}
-        }
-
-        .contact-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 0.8rem 1.8rem;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            font-size: 1.6rem;
-        }
-
-        .social-link {
-            color: var(--light);
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .social-link:hover {
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 480px) {
-            h1 {font-size: 2rem;}
-            p, .tagline {font-size: 1.1rem;}
-            .logo {width: 80px; height: 80px;}
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قريبًا • سنريك ما لم تره عينك</title>
+  <meta name="description" content="موقع قيد التطوير – تجربة تطوير iOS مبتكرة.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #007AFF;
+      --secondary: #34C759;
+      --dark: #1C1C1E;
+      --light: #F2F2F7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #1C1C1E, #2C2C2E, #1C1C1E);
+      background-size: 400% 400%;
+      animation: bgAnim 15s ease infinite;
+      color: var(--light);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    @keyframes bgAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    .logo {
+      width: 100px; height: 100px;
+      margin: 0 auto 1.5rem;
+      animation: bounceIn 1s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(.5); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    h1 { font-size: 2.8rem; color: var(--primary); margin-bottom: .5rem; }
+    .tagline {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .xcode-window {
+      background: rgba(30,30,32,0.9);
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      margin-bottom: 2rem;
+      text-align: left;
+      direction: ltr;
+      overflow-x: auto;
+    }
+    .window-header {
+      display: flex; align-items: center; margin-bottom: .8rem;
+    }
+    .window-buttons { display: flex; gap:6px; margin-right:8px; }
+    .window-btn { width:12px; height:12px; border-radius:50%; }
+    .btn-red { background: #FF5F56; }
+    .btn-yellow { background: #FFBD2E; }
+    .btn-green { background: #27C93F; }
+    .window-title {
+      font-size: .85rem;
+      color: #aaa;
+    }
+    .code {
+      font-family: 'Menlo','Monaco',monospace;
+      font-size: .95rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .code-purple { color: #C678DD; }
+    .code-blue { color: #61AFEF; }
+    .code-yellow { color: #E5C07B; }
+    .code-green { color: #98C379; }
+    .code-gray { color: #5C6370; }
+    .progress-container {
+      width: 100%; height: 8px;
+      background: rgba(255,255,255,0.15);
+      border-radius:5px;
+      overflow:hidden;
+      margin-bottom:2rem;
+    }
+    .progress-bar {
+      height:100%;
+      width:65%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      animation: progAnim 4s ease-in-out infinite;
+    }
+    @keyframes progAnim {
+      0% { width:65%; }
+      50% { width:80%; }
+      100% { width:65%; }
+    }
+    .btn-contact {
+      display:inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: .8rem 1.8rem;
+      border-radius:30px;
+      font-size:1.1rem;
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .btn-contact:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+    .social {
+      margin-top:1.5rem;
+      font-size:1.6rem;
+      display:flex;
+      justify-content:center;
+      gap:1.5rem;
+    }
+    .social a {
+      color: var(--light);
+      transition: color .3s, transform .3s;
+    }
+    .social a:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    @media(max-width:480px){
+      h1 { font-size:2rem; }
+      .tagline, p { font-size:1.1rem; }
+      .logo { width:80px; height:80px; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <svg class="logo" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="8" fill="#007AFF"/>
-            <path d="M12 7V17M7 12H17" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+  <div class="wrapper">
+    <svg class="logo" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="8" fill="#007AFF"/>
+      <path d="M12 7V17M7 12H17" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
 
-        <h1>الموقع قيد التطوير</h1>
-        <div class="tagline">سنريك ما لم تره عينك ✨</div>
-        <p>نعمل على تجربة مبهرة لتطبيقات iOS - ترقبونا قريبًا</p>
+    <h1>الموقع قيد التطوير</h1>
+    <div class="tagline">سنريك ما لم تره عينك ✨</div>
+    <p>نعمل جاهدين لإطلاق تجربة iOS مبهرة جداً قريبًا.</p>
 
-        <div class="xcode-window">
-            <div class="window-header">
-                <div class="window-buttons">
-                    <div class="window-btn btn-red"></div>
-                    <div class="window-btn btn-yellow"></div>
-                    <div class="window-btn btn-green"></div>
-                </div>
-                <div class="window-title">MainViewController.swift</div>
-            </div>
-            <div class="code">
-                <span class="code-purple">import</span> <span class="code-blue">UIKit</span><br><br>
-                <span class="code-purple">class</span> <span class="code-yellow">MainViewController</span>: <span class="code-blue">UIViewController</span> {<br>
-                &nbsp;&nbsp;<span class="code-purple">override func</span> <span class="code-blue">viewDidLoad</span>() {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">super</span>.<span class="code-blue">viewDidLoad</span>()<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">setupUI</span>()<br>
-                &nbsp;&nbsp;}<br><br>
-                &nbsp;&nbsp;<span class="code-purple">private func</span> <span class="code-blue">setupUI</span>() {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-purple">let</span> <span class="code-yellow">label</span> = <span class="code-blue">UILabel</span>()<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">text</span> = <span class="code-green">"سنريك ما لم تره عينك"</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">textAlignment</span> = <span class="code-blue">.center</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">frame</span> = <span class="code-blue">view.bounds</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">view</span>.<span class="code-blue">addSubview</span>(<span class="code-yellow">label</span>)<br>
-                &nbsp;&nbsp;}<br>
-                }
-            </div>
+    <div class="xcode-window">
+      <div class="window-header">
+        <div class="window-buttons">
+          <span class="window-btn btn-red"></span>
+          <span class="window-btn btn-yellow"></span>
+          <span class="window-btn btn-green"></span>
         </div>
+        <div class="window-title">SneakPeekViewController.swift</div>
+      </div>
+      <pre class="code">
+<span class="code-purple">import</span> <span class="code-blue">UIKit</span>
 
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>
+<span class="code-purple">class</span> <span class="code-yellow">SneakPeekViewController</span>: <span class="code-blue">UIViewController</span> {
+    <span class="code-purple">override func</span> <span class="code-blue">viewDidLoad</span>() {
+        <span class="code-blue">super</span>.<span class="code-blue">viewDidLoad</span>()
+        setupSneakPeek()
+    }
 
-        <a href="https://www.instagram.com/zd6" target="_blank" class="contact-btn">تواصل معنا</a>
-
-        <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/zd6" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-        </div>
+    <span class="code-purple">private func</span> <span class="code-blue">setupSneakPeek</span>() {
+        let label = UILabel()
+        label.text = <span class="code-green">"سنريك ما لم تره عينك"</span>
+        label.textAlignment = .center
+        label.frame = view.bounds
+        view.addSubview(label)
+    }
+}
+      </pre>
     </div>
+
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+
+    <a href="https://www.instagram.com/zd6" class="btn-contact" target="_blank">تواصل معنا</a>
+
+    <div class="social">
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/zd6"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+  </div>
+
 </body>
 </html>
