@@ -96,6 +96,58 @@
             animation: float 15s infinite linear;
         }
         
+        .xcode-window {
+            background: rgba(30, 30, 32, 0.8);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .window-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .window-buttons {
+            display: flex;
+            gap: 6px;
+            margin-right: 10px;
+        }
+        
+        .window-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .btn-red { background: #FF5F56; }
+        .btn-yellow { background: #FFBD2E; }
+        .btn-green { background: #27C93F; }
+        
+        .window-title {
+            font-size: 0.8rem;
+            color: #999;
+        }
+        
+        .code {
+            font-family: 'Menlo', 'Monaco', monospace;
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+        
+        .code-blue { color: #7FD4FF; }
+        .code-purple { color: #C678DD; }
+        .code-yellow { color: #E5C07B; }
+        .code-green { color: #98C379; }
+        .code-gray { color: #5C6370; }
+        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
@@ -126,11 +178,28 @@
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
         }
         
         .contact-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .code-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: #007AFF;
+            vertical-align: middle;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
 </head>
@@ -159,28 +228,52 @@
         </svg>
         
         <h1>الموقع قيد التطوير</h1>
-        <p>نحن نعمل على بناء تجربة رائعة لتطبيقات iOS باستخدام أحدث تقنيات Xcode. سنعود قريبًا!</p>
+        <p>سنعود قريبًا!</p>
+        
+        <div class="xcode-window">
+            <div class="window-header">
+                <div class="window-buttons">
+                    <div class="window-btn btn-red"></div>
+                    <div class="window-btn btn-yellow"></div>
+                    <div class="window-btn btn-green"></div>
+                </div>
+                <div class="window-title">ViewController.swift</div>
+            </div>
+            <div class="code">
+                <span class="code-purple">import</span> <span class="code-blue">UIKit</span><br><br>
+                
+                <span class="code-purple">class</span> <span class="code-yellow">ViewController</span>: <span class="code-blue">UIViewController</span> {<br>
+                &nbsp;&nbsp;<span class="code-purple">override func</span> <span class="code-blue">viewDidLoad</span>() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">super</span>.<span class="code-blue">viewDidLoad</span>()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-gray">// تهيئة الواجهة</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">setupUI</span>()<br>
+                &nbsp;&nbsp;}<br><br>
+                
+                &nbsp;&nbsp;<span class="code-purple">private func</span> <span class="code-blue">setupUI</span>() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-purple">let</span> <span class="code-yellow">label</span> = <span class="code-blue">UILabel</span>()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">text</span> = <span class="code-green">"مرحبًا بالعالم!"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">textAlignment</span> = <span class="code-blue">.center</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">frame</span> = <span class="code-blue">view</span>.<span class="code-blue">bounds</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">view</span>.<span class="code-blue">addSubview</span>(<span class="code-yellow">label</span>)<br>
+                &nbsp;&nbsp;}<br>
+                }<span class="code-cursor"></span>
+            </div>
+        </div>
         
         <div class="progress-container">
             <div class="progress-bar"></div>
         </div>
         
-        <button class="contact-btn">تواصل معنا</button>
+        <a href="https://www.instagram.com/zd6" class="contact-btn" target="_blank">تواصل معنا</a>
         
         <div class="social-links">
             <a href="#" class="social-link"></a> <!-- Twitter -->
-            <a href="#" class="social-link"></a> <!-- Facebook -->
-            <a href="#" class="social-link"></a> <!-- Instagram -->
+            <a href="https://www.instagram.com/zd6" class="social-link"></a> <!-- Instagram -->
             <a href="#" class="social-link"></a> <!-- LinkedIn -->
         </div>
     </div>
     
     <script>
-        // تفاعلية بسيطة عند النقر على الزر
-        document.querySelector('.contact-btn').addEventListener('click', function() {
-            alert('شكرًا لاهتمامك! يمكنك التواصل معنا على: contact@example.com');
-        });
-        
         // تأثيرات عائمة إضافية
         document.addEventListener('mousemove', function(e) {
             const container = document.querySelector('.container');
@@ -188,6 +281,30 @@
             const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
             container.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
         });
+        
+        // تأثير كتابة الكود (اختياري)
+        const codeLines = [
+            "import UIKit",
+            "",
+            "class ViewController: UIViewController {",
+            "    override func viewDidLoad() {",
+            "        super.viewDidLoad()",
+            "        // تهيئة الواجهة",
+            "        setupUI()",
+            "    }",
+            "    ",
+            "    private func setupUI() {",
+            "        let label = UILabel()",
+            "        label.text = \"مرحبًا بالعالم!\"",
+            "        label.textAlignment = .center",
+            "        label.frame = view.bounds",
+            "        view.addSubview(label)",
+            "    }",
+            "}"
+        ];
+        
+        // يمكنك إضافة تأثير الكتابة إذا أردت
+        // (تم حذفه للإبقاء على الكود بسيطاً)
     </script>
 </body>
 </html>
