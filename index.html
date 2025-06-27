@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>الموقع قيد التطوير</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         :root {
             --primary: #007AFF;
@@ -11,225 +12,204 @@
             --dark: #1C1C1E;
             --light: #F2F2F7;
         }
-        
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
             margin: 0;
-            padding: 0;
-            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(-45deg, #1C1C1E, #2C2C2E, #1C1C1E);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            color: var(--light);
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            height: 100vh;
             overflow: hidden;
         }
-        
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
         .container {
-            max-width: 800px;
-            padding: 2rem;
             position: relative;
             z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
         }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            font-weight: 700;
-        }
-        
-        p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        
+
         .logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 2rem;
-            animation: pulse 2s infinite;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1.5rem;
+            animation: bounceIn 1s ease-out, pulse 2s infinite;
         }
-        
-        .progress-container {
-            width: 100%;
-            height: 8px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            margin-bottom: 2rem;
-            overflow: hidden;
+
+        @keyframes bounceIn {
+            0% {transform: scale(0.5); opacity: 0;}
+            60% {transform: scale(1.1); opacity: 1;}
+            100% {transform: scale(1);}
         }
-        
-        .progress-bar {
-            height: 100%;
-            width: 65%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 4px;
-            animation: progress-animation 3s ease-in-out infinite;
+
+        @keyframes pulse {
+            0%, 100% {transform: scale(1);}
+            50% {transform: scale(1.1);}
         }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-        
-        .social-link {
-            color: var(--light);
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-        
-        .social-link:hover {
-            transform: translateY(-5px);
+
+        h1 {
+            font-size: 2.8rem;
             color: var(--primary);
+            margin-bottom: 1rem;
         }
-        
-        .xcode-icon {
-            position: absolute;
-            opacity: 0.1;
-            z-index: 1;
-            animation: float 15s infinite linear;
+
+        p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
         }
-        
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-top: -1rem;
+            margin-bottom: 2.5rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
         .xcode-window {
-            background: rgba(30, 30, 32, 0.8);
-            border-radius: 10px;
-            padding: 1rem;
-            margin: 2rem auto;
-            max-width: 500px;
+            background: rgba(30, 30, 32, 0.85);
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             text-align: left;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
+            direction: ltr;
+            overflow-x: auto;
+            margin-bottom: 2rem;
         }
-        
+
         .window-header {
             display: flex;
             align-items: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
-        
+
         .window-buttons {
             display: flex;
             gap: 6px;
-            margin-right: 10px;
+            margin-right: 8px;
         }
-        
+
         .window-btn {
             width: 12px;
             height: 12px;
             border-radius: 50%;
         }
-        
-        .btn-red { background: #FF5F56; }
-        .btn-yellow { background: #FFBD2E; }
-        .btn-green { background: #27C93F; }
-        
+
+        .btn-red {background: #FF5F56;}
+        .btn-yellow {background: #FFBD2E;}
+        .btn-green {background: #27C93F;}
+
         .window-title {
-            font-size: 0.8rem;
-            color: #999;
+            font-size: 0.85rem;
+            color: #aaa;
         }
-        
+
         .code {
             font-family: 'Menlo', 'Monaco', monospace;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
             color: #ccc;
-            line-height: 1.5;
         }
-        
-        .code-blue { color: #7FD4FF; }
-        .code-purple { color: #C678DD; }
-        .code-yellow { color: #E5C07B; }
-        .code-green { color: #98C379; }
-        .code-gray { color: #5C6370; }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+
+        .code-purple {color: #C678DD;}
+        .code-blue {color: #61AFEF;}
+        .code-green {color: #98C379;}
+        .code-yellow {color: #E5C07B;}
+        .code-gray {color: #5C6370;}
+
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 2rem 0;
         }
-        
+
+        .progress-bar {
+            height: 100%;
+            width: 65%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            animation: progress-animation 4s ease-in-out infinite;
+        }
+
         @keyframes progress-animation {
-            0% { width: 65%; }
-            50% { width: 75%; }
-            100% { width: 65%; }
+            0% {width: 65%;}
+            50% {width: 80%;}
+            100% {width: 65%;}
         }
-        
-        @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(50px, 50px) rotate(90deg); }
-            50% { transform: translate(100px, 0) rotate(180deg); }
-            75% { transform: translate(50px, -50px) rotate(270deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
-        }
-        
+
         .contact-btn {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-weight: 600;
-            text-decoration: none;
             display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .contact-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
         }
-        
-        .code-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 16px;
-            background: #007AFF;
-            vertical-align: middle;
-            margin-left: 2px;
-            animation: blink 1s infinite;
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 1.6rem;
         }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+
+        .social-link {
+            color: var(--light);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 480px) {
+            h1 {font-size: 2rem;}
+            p, .tagline {font-size: 1.1rem;}
+            .logo {width: 80px; height: 80px;}
         }
     </style>
 </head>
 <body>
-    <!-- أيقونات Xcode عائمة في الخلفية -->
-    <svg class="xcode-icon" style="top: 20%; left: 10%;" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11.7 7.2L17.1 12.6L11.7 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M6.3 7.2L11.7 12.6L6.3 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    
-    <svg class="xcode-icon" style="top: 70%; right: 15%;" width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 8L10 12L14 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    
-    <svg class="xcode-icon" style="top: 30%; right: 20%;" width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 7L13 12L8 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M16 7L21 12L16 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
 
     <div class="container">
-        <!-- شعار Xcode أو iOS -->
-        <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12Z" fill="#007AFF"/>
-            <path d="M12 6V18" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            <path d="M6 12H18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <svg class="logo" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="8" fill="#007AFF"/>
+            <path d="M12 7V17M7 12H17" stroke="white" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        
+
         <h1>الموقع قيد التطوير</h1>
-        <p>سنعود قريبًا!</p>
-        
+        <div class="tagline">سنريك ما لم تره عينك ✨</div>
+        <p>نعمل على تجربة مبهرة لتطبيقات iOS - ترقبونا قريبًا</p>
+
         <div class="xcode-window">
             <div class="window-header">
                 <div class="window-buttons">
@@ -237,74 +217,37 @@
                     <div class="window-btn btn-yellow"></div>
                     <div class="window-btn btn-green"></div>
                 </div>
-                <div class="window-title">ViewController.swift</div>
+                <div class="window-title">MainViewController.swift</div>
             </div>
             <div class="code">
                 <span class="code-purple">import</span> <span class="code-blue">UIKit</span><br><br>
-                
-                <span class="code-purple">class</span> <span class="code-yellow">ViewController</span>: <span class="code-blue">UIViewController</span> {<br>
+                <span class="code-purple">class</span> <span class="code-yellow">MainViewController</span>: <span class="code-blue">UIViewController</span> {<br>
                 &nbsp;&nbsp;<span class="code-purple">override func</span> <span class="code-blue">viewDidLoad</span>() {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">super</span>.<span class="code-blue">viewDidLoad</span>()<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-gray">// تهيئة الواجهة</span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">setupUI</span>()<br>
                 &nbsp;&nbsp;}<br><br>
-                
                 &nbsp;&nbsp;<span class="code-purple">private func</span> <span class="code-blue">setupUI</span>() {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-purple">let</span> <span class="code-yellow">label</span> = <span class="code-blue">UILabel</span>()<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">text</span> = <span class="code-green">"مرحبًا بالعالم!"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">text</span> = <span class="code-green">"سنريك ما لم تره عينك"</span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">textAlignment</span> = <span class="code-blue">.center</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">frame</span> = <span class="code-blue">view</span>.<span class="code-blue">bounds</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">label</span>.<span class="code-blue">frame</span> = <span class="code-blue">view.bounds</span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">view</span>.<span class="code-blue">addSubview</span>(<span class="code-yellow">label</span>)<br>
                 &nbsp;&nbsp;}<br>
-                }<span class="code-cursor"></span>
+                }
             </div>
         </div>
-        
+
         <div class="progress-container">
             <div class="progress-bar"></div>
         </div>
-        
-        <a href="https://www.instagram.com/zd6" class="contact-btn" target="_blank">تواصل معنا</a>
-        
+
+        <a href="https://www.instagram.com/zd6" target="_blank" class="contact-btn">تواصل معنا</a>
+
         <div class="social-links">
-            <a href="#" class="social-link"></a> <!-- Twitter -->
-            <a href="https://www.instagram.com/zd6" class="social-link"></a> <!-- Instagram -->
-            <a href="#" class="social-link"></a> <!-- LinkedIn -->
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/zd6" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
         </div>
     </div>
-    
-    <script>
-        // تأثيرات عائمة إضافية
-        document.addEventListener('mousemove', function(e) {
-            const container = document.querySelector('.container');
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            container.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
-        });
-        
-        // تأثير كتابة الكود (اختياري)
-        const codeLines = [
-            "import UIKit",
-            "",
-            "class ViewController: UIViewController {",
-            "    override func viewDidLoad() {",
-            "        super.viewDidLoad()",
-            "        // تهيئة الواجهة",
-            "        setupUI()",
-            "    }",
-            "    ",
-            "    private func setupUI() {",
-            "        let label = UILabel()",
-            "        label.text = \"مرحبًا بالعالم!\"",
-            "        label.textAlignment = .center",
-            "        label.frame = view.bounds",
-            "        view.addSubview(label)",
-            "    }",
-            "}"
-        ];
-        
-        // يمكنك إضافة تأثير الكتابة إذا أردت
-        // (تم حذفه للإبقاء على الكود بسيطاً)
-    </script>
 </body>
 </html>
