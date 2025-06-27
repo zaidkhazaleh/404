@@ -1,0 +1,146 @@
+/* إعداد المتغيرات */
+:root {
+    --primary-color: #0074D9;
+    --dark-color: #1A1A1A;
+    --text-color: #fff;
+    --hover-bg: rgba(255, 255, 255, 0.2);
+    --light-border: rgba(255, 255, 255, 0.2);
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* إعادة تعيين */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* الجسم */
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color), var(--primary-color));
+    background-size: 300% 300%;
+    animation: gradient-animation 30s ease infinite;
+    color: var(--text-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+}
+
+/* أنيميشن للخلفية */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* أنيميشن للظهور */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* الرأس */
+header {
+    margin-bottom: 30px;
+}
+
+header .profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--light-border);
+    box-shadow: var(--box-shadow);
+    transition: 0.4s ease;
+}
+
+header .profile img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 15px 0;
+    color: var(--text-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #eee;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* الروابط */
+.links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* أزرار الروابط */
+.link-button,
+#back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--light-border);
+    border-radius: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.link-button:hover,
+#back-button:hover {
+    background: var(--hover-bg);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.link-button i {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+/* زر العودة */
+#back-button {
+    grid-column: 1 / -1;
+}
+
+/* التذييل */
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 400px) {
+    .link-button,
+    #back-button {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+}
